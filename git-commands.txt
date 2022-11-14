@@ -1,0 +1,44 @@
+GIT COMMAND
+===================
+
+1) git init : It will create a empty git repo in local machine.
+
+2) git clone <repo> : I will clone remote repo into local machine.
+
+3) git add . : It will add all files into staging area.
+
+4) git add <file_name/directory_name>: It will add that particular file/folder into staging area.
+
+5) git status : It shows files which are staged, unstaged, and untracked.
+
+6) git commit -m "<message>" : It will commit your staged files as a new commit snapshot.
+
+7) git push : It will push files to remote repo.
+
+8) git pull : I will pull files from remote repo to local machine.
+
+9) git diff : It shows that what is changed but not staged.
+
+10) git diff --staged : It shows that what is staged but not yet commited
+
+11) git reset : It will unstage a file while retaining the changes in working directory.
+
+12) git config --global user.name "[firstname lastname]" : It will set a name that is identifiable for credit when review version history.
+
+13) git config --global user.email "[valid-email]" : It will set an email address that will be associated with each history marker.
+
+14) git branch : It will shows list of branches 
+
+15) git branch [branch-name] : It will create a new branch
+
+16) git checkout [branch-name] : It will switch branch
+
+17) git merge [branch-name] : I will merge specified branch with active branch.
+
+18) git log : It will show all commits in current branch's history.
+
+19) git rm [file] : It will delete the file from project and stage the removal for commit.
+
+20) git mv [existing-path] [new-path] : It will change an existing file path and stage the move.
+
+21) git rebase [branch] : It will apply any commits of current branch ahead of specified one.
