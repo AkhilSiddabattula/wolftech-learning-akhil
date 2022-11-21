@@ -24,8 +24,7 @@ class ListingSpider(scrapy.Spider):
             item['originalUrl'] = response.urljoin(
                 eval(re.split('=', notice.css('div.publicacion-cuerpo input::attr(onclick)').get())[-1]))
             item['entityIdAtSource'] = item["originalUrl"].split('/')[-2]
-            yield scrapy.Request(item['originalUrl'], callback=self.parse_detail)
-            yield item
+            yield scrapy.Request(item['originalUrl'], callback=self.parse_detail, meta={'data': item})
         # Checking for next page, if page exists it will move to next page
         next_page = response.css('#publicacionFiltro > div.pagination > a:nth-last-child(2)::attr(href)').get()
         if next_page is not None:
@@ -34,6 +33,7 @@ class ListingSpider(scrapy.Spider):
 
     def parse_detail(self, response):
         item = ComprassaltaItem()
+        item['listing_page'] = response.meta['data']
         item['lotTitle'] = response.css(
             'body > div.container > div.main.big-shadow div.col-md-8 > article > div.publicacion-cuerpo > div:nth-child(1) > span.publicacion-fila-descripcion::text').get()
         item['documentLinks'] = response.urljoin(response.css('ul:nth-child(3) > li:nth-child(2) a::attr(href)').get())

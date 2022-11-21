@@ -15,7 +15,7 @@ class ComprassaltaItem(scrapy.Item):
     openDate = scrapy.Field()
     originalUrl = scrapy.Field()
     documentLinks = scrapy.Field()
-    detail = scrapy.Field()
+    listing_page = scrapy.Field()
     lotTitle = scrapy.Field()
     documentLinks = scrapy.Field()
 
