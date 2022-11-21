@@ -15,11 +15,11 @@ class ListingSpider(scrapy.Spider):
         # Looping through notices
         for notice in notices:
             item['title'] = notice.css('div.publicacion-cuerpo > div:nth-child(1) > span.publicacion-fila-descripcion::text').get()
-            item['entityIdAtSource'] = "".join(re.findall("[0-9/]", notice.css('div.media > div > span:nth-child(2)::text').get()))
             item['shortDescription'] = re.split(':', notice.css('div.publicacion-cuerpo > div:nth-child(4) > span.publicacion-fila-descripcion::text').get())[-1]
             item['supplierName'] = notice.css('div.publicacion-cuerpo > div:nth-child(2) > span.publicacion-fila-descripcion::text').get()
             item['openDate'] = notice.css('div.media > div > span:nth-child(1) > span:nth-child(2)::text').get()
             item['originalUrl'] = "http://compras.salta.gov.ar" + eval(re.split('=', notice.css('div.publicacion-cuerpo input::attr(onclick)').get())[-1])
+            item['entityIdAtSource'] = item["originalUrl"].split('/')[-2]
             yield item
 
         # Checking for next page, if page exists it will move to next page
