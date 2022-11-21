@@ -16,4 +16,6 @@ class ComprassaltaItem(scrapy.Item):
     originalUrl = scrapy.Field()
     documentLinks = scrapy.Field()
     detail = scrapy.Field()
+    lotTitle = scrapy.Field()
+    documentLinks = scrapy.Field()
 
